@@ -3,16 +3,15 @@
  */
 package com.alphasystem.persistence.mongo.model;
 
-import static com.alphasystem.util.HashCodeUtil.hash;
-import static java.lang.String.format;
-import static org.apache.commons.lang3.StringUtils.isBlank;
-
-import java.io.Serializable;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
-import com.alphasystem.util.IdGenerator;
+import java.io.Serializable;
+
+import static com.alphasystem.util.HashCodeUtil.hash;
+import static com.alphasystem.util.IdGenerator.nextId;
+import static java.lang.String.format;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
@@ -33,7 +32,7 @@ public abstract class AbstractDocument implements Serializable,
 	 * 
 	 */
 	public AbstractDocument() {
-		this(IdGenerator.nextId());
+		this(nextId());
 	}
 
 	/**
@@ -64,8 +63,16 @@ public abstract class AbstractDocument implements Serializable,
 		return displayName;
 	}
 
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
 	public String getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id == null ? nextId() : id;
 	}
 
 	@Override
@@ -75,14 +82,6 @@ public abstract class AbstractDocument implements Serializable,
 
 	public void initDisplayName() {
 		setDisplayName(format("%s:%s", getClass().getSimpleName(), id));
-	}
-
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	@Override
