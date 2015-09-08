@@ -39,7 +39,7 @@ public abstract class AbstractDocument implements Serializable,
 	 * @param id
 	 */
 	public AbstractDocument(String id) {
-		this.id = id;
+		setId(id);
 	}
 
 	@Override
