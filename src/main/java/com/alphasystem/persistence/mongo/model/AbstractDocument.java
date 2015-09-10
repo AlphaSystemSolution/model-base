@@ -57,9 +57,6 @@ public abstract class AbstractDocument implements Serializable,
 	}
 
 	public String getDisplayName() {
-		if (isBlank(displayName)) {
-			initDisplayName();
-		}
 		return displayName;
 	}
 
