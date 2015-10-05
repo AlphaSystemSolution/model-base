@@ -83,7 +83,10 @@ public abstract class AbstractDocument implements Serializable,
 
 	@Override
 	public String toString() {
-		return isBlank(displayName) ? id : displayName;
+		if (isBlank(displayName)) {
+			initDisplayName();
+		}
+		return displayName;
 	}
 
 }
