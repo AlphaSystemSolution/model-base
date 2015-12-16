@@ -1,4 +1,4 @@
-package com.alphasystem.persistence.mongo.model;
+package com.alphasystem.persistence.model;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

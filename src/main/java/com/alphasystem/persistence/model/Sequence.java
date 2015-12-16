@@ -1,15 +1,14 @@
 /**
  * 
  */
-package com.alphasystem.persistence.mongo.model;
+package com.alphasystem.persistence.model;
 
-import java.io.Serializable;
-
+import com.alphasystem.util.HashCodeUtil;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.alphasystem.util.HashCodeUtil;
+import java.io.Serializable;
 
 /**
  * @author Syed F Ali
@@ -58,50 +57,18 @@ public class Sequence implements Serializable, Comparable<Sequence> {
 	}
 
 	/**
-	 * @return the initial
-	 */
-	public long getInitial() {
-		return initial;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @return the prefix
-	 */
-	public String getPrefix() {
-		return prefix;
-	}
-
-	/**
-	 * @return the suffix
-	 */
-	public String getSuffix() {
-		return suffix;
-	}
-
-	public long getValueAfterIncrementing() {
-		long temp = initial;
-		initial += blockSize;
-		return temp;
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeUtil.hash(name);
-	}
-
-	/**
 	 * @param blockSize
 	 *            the blockSize to set
 	 */
 	public void setBlockSize(long blockSize) {
 		this.blockSize = blockSize;
+	}
+
+	/**
+	 * @return the initial
+	 */
+	public long getInitial() {
+		return initial;
 	}
 
 	/**
@@ -113,11 +80,25 @@ public class Sequence implements Serializable, Comparable<Sequence> {
 	}
 
 	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
 	 * @param name
 	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the prefix
+	 */
+	public String getPrefix() {
+		return prefix;
 	}
 
 	/**
@@ -129,11 +110,29 @@ public class Sequence implements Serializable, Comparable<Sequence> {
 	}
 
 	/**
+	 * @return the suffix
+	 */
+	public String getSuffix() {
+		return suffix;
+	}
+
+	/**
 	 * @param suffix
 	 *            the suffix to set
 	 */
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
+	}
+
+	public long getValueAfterIncrementing() {
+		long temp = initial;
+		initial += blockSize;
+		return temp;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashCodeUtil.hash(name);
 	}
 
 	@Override

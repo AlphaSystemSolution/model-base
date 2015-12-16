@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alphasystem.persistence.mongo.model;
+package com.alphasystem.persistence.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
