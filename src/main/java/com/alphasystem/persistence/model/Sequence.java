@@ -4,6 +4,7 @@
 package com.alphasystem.persistence.model;
 
 import com.alphasystem.util.HashCodeUtil;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -13,6 +14,7 @@ import java.io.Serializable;
 /**
  * @author Syed F Ali
  */
+@QueryEntity
 @Document(collection = "sequence")
 public class Sequence implements Serializable, Comparable<Sequence> {
 

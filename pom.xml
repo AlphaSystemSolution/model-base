@@ -22,7 +22,8 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${genOutputDirectory}</outputDirectory>
-                            <processor>com.querydsl.apt.morphia.MorphiaAnnotationProcessor</processor>
+                            <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor
+                            </processor>
                         </configuration>
                     </execution>
                 </executions>
@@ -60,11 +61,27 @@
             <version>1.0.1</version>
         </dependency>
         <dependency>
+            <groupId>com.mysema.querydsl</groupId>
+            <artifactId>querydsl-core</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysema.querydsl</groupId>
+            <artifactId>querydsl-mongodb</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysema.querydsl</groupId>
+            <artifactId>querydsl-apt</artifactId>
+            <version>3.6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--<dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
             <version>${querydsl.version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 	</dependencies>
 	<properties>
 		<commons.version>${project.version}</commons.version>

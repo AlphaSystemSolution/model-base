@@ -3,7 +3,7 @@
  */
 package com.alphasystem.persistence.model;
 
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
@@ -18,7 +18,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  * @author sali
  * 
  */
-@Entity
+@QueryEntity
 public abstract class AbstractDocument implements Serializable,
 		Comparable<AbstractDocument> {
 
