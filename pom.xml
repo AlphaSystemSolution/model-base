@@ -1,14 +1,14 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.alphasystem.mongo</groupId>
-	<artifactId>model-base</artifactId>
-	<parent>
-		<groupId>com.alphasystem.project</groupId>
-		<artifactId>jar</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
-		<relativePath>../project/jar/pom.xml</relativePath>
-	</parent>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.alphasystem.mongo</groupId>
+    <artifactId>model-base</artifactId>
+    <parent>
+        <groupId>com.alphasystem.project</groupId>
+        <artifactId>jar</artifactId>
+        <version>3.0.0-SNAPSHOT</version>
+        <relativePath>../project/jar/pom.xml</relativePath>
+    </parent>
     <build>
         <plugins>
             <plugin>
@@ -34,22 +34,22 @@
             </plugin>
         </plugins>
     </build>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-			<version>${spring-data-mongodb.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>${cglib.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alphasystem</groupId>
-			<artifactId>commons</artifactId>
-			<version>${commons.version}</version>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${spring-data-mongodb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alphasystem</groupId>
+            <artifactId>commons</artifactId>
+            <version>${commons.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-mongodb</artifactId>
@@ -63,28 +63,22 @@
         <dependency>
             <groupId>com.mysema.querydsl</groupId>
             <artifactId>querydsl-core</artifactId>
-            <version>3.6.0</version>
+            <version>${mysema.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mysema.querydsl</groupId>
             <artifactId>querydsl-mongodb</artifactId>
-            <version>3.6.0</version>
+            <version>${mysema.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mysema.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
-            <version>3.6.0</version>
+            <version>${mysema.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--<dependency>
-            <groupId>com.querydsl</groupId>
-            <artifactId>querydsl-apt</artifactId>
-            <version>${querydsl.version}</version>
-            <scope>provided</scope>
-        </dependency>-->
-	</dependencies>
-	<properties>
-		<commons.version>${project.version}</commons.version>
+    </dependencies>
+    <properties>
+        <commons.version>${project.version}</commons.version>
         <genOutputDirectory>${project.build.directory}/generated-sources/querydsl</genOutputDirectory>
-	</properties>
+    </properties>
 </project>
