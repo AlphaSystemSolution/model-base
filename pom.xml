@@ -72,6 +72,11 @@
         </dependency>
         <dependency>
             <groupId>com.mysema.querydsl</groupId>
+            <artifactId>querydsl-collections</artifactId>
+            <version>${mysema.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysema.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
             <version>${mysema.version}</version>
             <scope>provided</scope>
