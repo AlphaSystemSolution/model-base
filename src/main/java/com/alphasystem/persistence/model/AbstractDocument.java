@@ -1,94 +1,58 @@
 /**
- * 
+ *
  */
 package com.alphasystem.persistence.model;
 
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
-import java.io.Serializable;
-
-import static com.alphasystem.util.HashCodeUtil.hash;
-import static com.alphasystem.util.IdGenerator.nextId;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
- * 
  */
 @QueryEntity
-public abstract class AbstractDocument implements Serializable,
-		Comparable<AbstractDocument> {
+public abstract class AbstractDocument extends AbstractSimpleDocument {
 
-	private static final long serialVersionUID = 2893119511804709470L;
+    private static final long serialVersionUID = 2893119511804709470L;
 
-	@Id
-	protected String id;
 
-	@Indexed(unique = true, name = "dis_name")
-	protected String displayName;
+    @Indexed(unique = true, name = "dis_name")
+    protected String displayName;
 
-	/**
-	 * 
-	 */
-	public AbstractDocument() {
-		this(nextId());
-	}
+    /**
+     *
+     */
+    public AbstractDocument() {
+        this(null);
+    }
 
-	/**
-	 * @param id
-	 */
-	public AbstractDocument(String id) {
-		setId(id);
-	}
+    /**
+     * @param id ID of this document
+     */
+    public AbstractDocument(String id) {
+        super(id);
+    }
 
-	@Override
-	public int compareTo(AbstractDocument o) {
-		return (o == null) ? 1 : id.compareTo(o.getId());
-	}
+    public String getDisplayName() {
+        return displayName;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj != null && obj instanceof AbstractDocument) {
-			AbstractDocument other = (AbstractDocument) obj;
-			return id.equals(other.getId());
-		}
-		return false;
-	}
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 
-	public String getDisplayName() {
-		return displayName;
-	}
+    public void initDisplayName() {
+        setDisplayName(format("%s:%s", getClass().getSimpleName(), id));
+    }
 
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id == null ? nextId() : id;
-	}
-
-	@Override
-	public int hashCode() {
-		return hash(id);
-	}
-
-	public void initDisplayName() {
-		setDisplayName(format("%s:%s", getClass().getSimpleName(), id));
-	}
-
-	@Override
-	public String toString() {
-		if (isBlank(displayName)) {
-			initDisplayName();
-		}
-		return displayName;
-	}
+    @Override
+    public String toString() {
+        if (isBlank(displayName)) {
+            initDisplayName();
+        }
+        return displayName;
+    }
 
 }
