@@ -3,8 +3,9 @@
  */
 package com.alphasystem.persistence.model;
 
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
@@ -12,7 +13,8 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
+@Document
 public abstract class AbstractDocument extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 2893119511804709470L;
