@@ -22,11 +22,17 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${genOutputDirectory}</outputDirectory>
-                            <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor
-                            </processor>
+                            <processor>com.querydsl.apt.morphia.MorphiaAnnotationProcessor</processor>
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.querydsl</groupId>
+                        <artifactId>querydsl-apt</artifactId>
+                        <version>${querydsl.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -58,28 +64,7 @@
         <dependency>
             <groupId>org.mongodb.morphia</groupId>
             <artifactId>morphia</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mysema.querydsl</groupId>
-            <artifactId>querydsl-core</artifactId>
-            <version>${mysema.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mysema.querydsl</groupId>
-            <artifactId>querydsl-mongodb</artifactId>
-            <version>${mysema.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mysema.querydsl</groupId>
-            <artifactId>querydsl-collections</artifactId>
-            <version>${mysema.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mysema.querydsl</groupId>
-            <artifactId>querydsl-apt</artifactId>
-            <version>${mysema.version}</version>
-            <scope>provided</scope>
+            <version>1.3.0</version>
         </dependency>
     </dependencies>
     <properties>
