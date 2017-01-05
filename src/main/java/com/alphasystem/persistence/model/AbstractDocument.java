@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static java.lang.String.format;
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
@@ -51,10 +50,8 @@ public abstract class AbstractDocument extends AbstractSimpleDocument {
 
     @Override
     public String toString() {
-        if (isBlank(displayName)) {
-            initDisplayName();
-        }
-        return displayName;
+        initDisplayName();
+        return getDisplayName();
     }
 
 }
