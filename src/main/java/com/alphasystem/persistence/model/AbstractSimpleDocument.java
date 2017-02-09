@@ -1,9 +1,5 @@
 package com.alphasystem.persistence.model;
 
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.io.Serializable;
 
 import static com.alphasystem.util.HashCodeUtil.hash;
@@ -14,11 +10,8 @@ import static com.alphasystem.util.IdGenerator.nextId;
  *
  * @author sali
  */
-@Entity
-@Document
 public abstract class AbstractSimpleDocument implements Serializable, Comparable<AbstractSimpleDocument> {
 
-    @Id
     protected String id;
 
     /**

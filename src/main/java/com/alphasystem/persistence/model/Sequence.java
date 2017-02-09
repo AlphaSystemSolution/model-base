@@ -4,35 +4,24 @@
 package com.alphasystem.persistence.model;
 
 import com.alphasystem.util.HashCodeUtil;
-import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
 /**
  * @author Syed F Ali
  */
-@QueryEntity
-@Document(collection = "sequence")
 public class Sequence implements Serializable, Comparable<Sequence> {
 
 	private static final long serialVersionUID = 3039368170170933550L;
 
-	@Field(value = "block_size", order = 2)
 	protected long blockSize;
 
-	@Field(value = "initial", order = 1)
 	protected long initial;
 
-	@Id
 	protected String name;
 
-	@Field(value = "prefix", order = 3)
 	protected String prefix;
 
-	@Field(value = "suffix", order = 4)
 	protected String suffix;
 
 	public Sequence() {

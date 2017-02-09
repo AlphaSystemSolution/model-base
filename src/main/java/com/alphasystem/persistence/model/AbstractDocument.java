@@ -1,25 +1,14 @@
-/**
- *
- */
 package com.alphasystem.persistence.model;
-
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static java.lang.String.format;
 
 /**
  * @author sali
  */
-@Entity
-@Document
 public abstract class AbstractDocument extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 2893119511804709470L;
 
-
-    @Indexed(unique = true, name = "dis_name")
     protected String displayName;
 
     /**
