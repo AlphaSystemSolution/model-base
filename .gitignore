@@ -1,6 +1,6 @@
 target/
-build/
-.gradle/
+**/build/
+**/.gradle/
 *.iml
 pom.xml.tag
 pom.xml.releaseBackup
